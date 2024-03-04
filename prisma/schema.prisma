@@ -16,3 +16,12 @@ datasource db {
 generator erd {
   provider = "prisma-erd-generator"
 }
+
+model User {
+  id       String  @id @default(uuid())
+  email    String  @unique
+  name     String
+  password String
+  isAdmin  Boolean @default(false)
+  isActive Boolean @default(true)
+}
