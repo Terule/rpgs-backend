@@ -52,6 +52,20 @@ model Campaign {
   tableId   String
   dmId      String
 
+  Post Post[]
+
   table Table @relation(fields: [tableId], references: [id])
   dm    User  @relation(fields: [dmId], references: [id])
+}
+
+model Post {
+  id         String   @id @default(uuid())
+  title      String
+  content    String
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  userId     String
+  campaignId String
+
+  campaign Campaign @relation(fields: [campaignId], references: [id])
 }
