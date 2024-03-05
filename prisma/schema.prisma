@@ -53,9 +53,10 @@ model Campaign {
   dmId      String
 
   Post Post[]
+  CharacterCampaign CharacterCampaign[]
 
-  table Table @relation(fields: [tableId], references: [id])
-  dm    User  @relation(fields: [dmId], references: [id])
+  table             Table               @relation(fields: [tableId], references: [id])
+  dm                User                @relation(fields: [dmId], references: [id])
 }
 
 model Post {
@@ -68,4 +69,21 @@ model Post {
   campaignId String
 
   campaign Campaign @relation(fields: [campaignId], references: [id])
+}
+
+model Character {
+  id                String              @id @default(uuid())
+  name              String
+  imageUrl          String?
+  isActive          Boolean             @default(true)
+  CharacterCampaign CharacterCampaign[]
+}
+
+model CharacterCampaign {
+  id          String @id @default(uuid())
+  characterId String
+  campaignId  String
+
+  character Character @relation(fields: [characterId], references: [id])
+  campaign  Campaign  @relation(fields: [campaignId], references: [id])
 }
