@@ -24,4 +24,18 @@ model User {
   password String
   isAdmin  Boolean @default(false)
   isActive Boolean @default(true)
+  imageUrl String?
+  Table    Table[]
+}
+
+model Table {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  imageUrl    String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  dmId        String
+
+  dm User @relation(fields: [dmId], references: [id])
 }
