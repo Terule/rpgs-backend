@@ -9,3 +9,12 @@ type UserData = {
   imageUrl: string | null;
 }
 
+const prisma = new PrismaClient();
+
+export const createUser = async (userData: UserData) => {
+  const user = await prisma.user.create({
+    data: userData,
+  });
+  return user;
+}
+
