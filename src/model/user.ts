@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
-type UserData = {
+type userData = {
   name: string;
   email: string;
   password: string;
@@ -11,7 +11,7 @@ type UserData = {
 
 const prisma = new PrismaClient();
 
-export const createUser = async (userData: UserData) => {
+export const createUser = async (userData: userData) => {
   const user = await prisma.user.create({
     data: userData,
   });
@@ -32,7 +32,7 @@ export const getUserById = async (id: string) => {
   return user;
 }
 
-export const updateUser = async (id: string, userData: UserData) => {
+export const updateUser = async (id: string, userData: userData) => {
   const user = await prisma.user.update({
     where: { id },
     data: userData,
