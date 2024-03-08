@@ -20,12 +20,14 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./src",
     "paths": {
-      "@models": ["./models"],
-      "@controllers": ["./controllers"],
-      "@services": ["./services"],
-      "@middlewares": ["./middlewares"],
-      "@utils": ["./utils"],
-      "@types": ["./types"]
+      "@models/*": ["models/*"],
+      "@controllers/*": ["controllers/*"],
+      "@services/*": ["services/*"],
+      "@middlewares/*": ["middlewares/*"],
+      "@utils/*": ["utils/*"],
+      "@cTypes/*": ["types/*"]
     }
-  }
+  },
+  "include": ["next-env.d.ts", "twin.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
 }

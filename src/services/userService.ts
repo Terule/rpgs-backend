@@ -1,5 +1,5 @@
-import { UserModel } from "models/userModel";
-import { userData } from "types/userTypes";
+import { UserModel } from "@models/userModel";
+import { userData } from "@cTypes/userTypes";
 
 export class UserService {
   private _model: UserModel;
