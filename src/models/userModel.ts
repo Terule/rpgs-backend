@@ -8,7 +8,7 @@ export class UserModel {
     this._prisma = prisma;
   }
 
-  public createUser = async (userData: userData) => {
+  public create = async (userData: userData) => {
     const user = await this._prisma.user.create({
       data: userData,
       select: {
@@ -23,21 +23,35 @@ export class UserModel {
     return user;
   };
 
-  public getUserByEmail = async (email: string) => {
+  public getByEmail = async (email: string) => {
     const user = await this._prisma.user.findUnique({
       where: { email },
     });
     return user;
   };
 
-  public getUserById = async (id: string) => {
+  public getById = async (id: string) => {
     const user = await this._prisma.user.findUnique({
       where: { id },
     });
     return user;
   };
 
-  public updateUser = async (id: string, userData: userData) => {
+  public getAll = async () => {
+    const users = await this._prisma.user.findMany({
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        isAdmin: true,
+        isActive: true,
+        imageUrl: true,
+      },
+    });
+    return users;
+  }
+
+  public update = async (id: string, userData: userData) => {
     const user = await this._prisma.user.update({
       where: { id },
       data: userData,
@@ -45,7 +59,7 @@ export class UserModel {
     return user;
   };
 
-  public deleteUser = async (id: string) => {
+  public delete = async (id: string) => {
     const user = await this._prisma.user.delete({
       where: { id },
     });
