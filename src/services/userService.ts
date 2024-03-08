@@ -41,4 +41,9 @@ export class UserService {
     const user = await this._model.updateUser(id, userData);
     return user;
   };
+
+  public deleteUser = async (id: string) => {
+    const user = await this._model.deleteUser(id);
+    return user;
+  };
 }
