@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import userRoute from '@routes/userRoutes';
 
 dotenv.config();
 
@@ -12,5 +13,8 @@ app.use(cors());
 app.get('/', (_req, res) => {
   res.json({ message: 'Hello, world!' });
 });
+
+app.use('/user', userRoute);
+
 
 export default app;
