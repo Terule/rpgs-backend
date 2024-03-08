@@ -31,4 +31,11 @@ export class UserService {
     const user = await this._model.getUserByEmail(email);
     return user;
   };
+
+  public getUserById = async (id: string) => {
+    const user = await this._model.getUserById(id);
+    return user;
+  };
+  
+
 }
