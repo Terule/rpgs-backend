@@ -8,7 +8,7 @@ export class UserService {
     this._model = model;
   }
 
-  public createUser = async ({
+  public create = async ({
     name,
     email,
     password,
@@ -16,7 +16,7 @@ export class UserService {
     isAdmin = false,
     imageUrl = null,
   }: userData) => {
-    const user = await this._model.createUser({
+    const user = await this._model.create({
       name,
       email,
       password,
@@ -27,23 +27,28 @@ export class UserService {
     return user;
   };
 
-  public getUserByEmail = async (email: string) => {
-    const user = await this._model.getUserByEmail(email);
+  public getAll = async () => {
+    const users = await this._model.getAll();
+    return users;
+  }
+
+  public getByEmail = async (email: string) => {
+    const user = await this._model.getByEmail(email);
     return user;
   };
 
-  public getUserById = async (id: string) => {
-    const user = await this._model.getUserById(id);
+  public getById = async (id: string) => {
+    const user = await this._model.getById(id);
     return user;
   };
 
-  public updateUser = async (id: string, userData: userData) => {
-    const user = await this._model.updateUser(id, userData);
+  public update = async (id: string, userData: userData) => {
+    const user = await this._model.update(id, userData);
     return user;
   };
 
-  public deleteUser = async (id: string) => {
-    const user = await this._model.deleteUser(id);
+  public delete = async (id: string) => {
+    const user = await this._model.delete(id);
     return user;
   };
 }
