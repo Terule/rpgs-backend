@@ -26,4 +26,24 @@ export class UserService {
     });
     return user;
   };
+
+  public getUserByEmail = async (email: string) => {
+    const user = await this._model.getUserByEmail(email);
+    return user;
+  };
+
+  public getUserById = async (id: string) => {
+    const user = await this._model.getUserById(id);
+    return user;
+  };
+
+  public updateUser = async (id: string, userData: userData) => {
+    const user = await this._model.updateUser(id, userData);
+    return user;
+  };
+
+  public deleteUser = async (id: string) => {
+    const user = await this._model.deleteUser(id);
+    return user;
+  };
 }
