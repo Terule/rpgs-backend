@@ -26,4 +26,9 @@ export class UserService {
     });
     return user;
   };
+
+  public getUserByEmail = async (email: string) => {
+    const user = await this._model.getUserByEmail(email);
+    return user;
+  };
 }
