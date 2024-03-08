@@ -36,6 +36,9 @@ export class UserService {
     const user = await this._model.getUserById(id);
     return user;
   };
-  
 
+  public updateUser = async (id: string, userData: userData) => {
+    const user = await this._model.updateUser(id, userData);
+    return user;
+  };
 }
