@@ -16,6 +16,5 @@ route.post("/", userController.create);
 route.get("/:id", userController.getById);
 route.put("/:id", userController.update);
 route.delete("/:id", userController.delete);
-route.get("/:email", userController.getByEmail);
 
 export default route;

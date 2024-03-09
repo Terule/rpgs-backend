@@ -19,20 +19,10 @@ export class UserController {
     }
   };
 
-  public getAll = async (req: Request, res: Response) => {
+  public getAll = async (_req: Request, res: Response) => {
     try {
       const users = await this._userService.getAll();
       res.status(200).json(users);
-    } catch (error) {
-      res.status(500).json({ error: (error as Error).message });
-    }
-  };
-
-  public getByEmail = async (req: Request, res: Response) => {
-    try {
-      const email: string = req.params.email;
-      const user = await this._userService.getByEmail(email);
-      res.status(200).json(user);
     } catch (error) {
       res.status(500).json({ error: (error as Error).message });
     }
