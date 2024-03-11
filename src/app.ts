@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import userRoute from '@routes/userRoutes';
+import authRoute from '@routes/authRoutes';
+import registerRoute from '@routes/registerRoutes';
 
 dotenv.config();
 
@@ -17,6 +19,8 @@ app.get('/', (_req, res) => {
 });
 
 app.use('/user', userRoute);
+app.use('/auth', authRoute);
+app.use('/register', registerRoute);
 
 
 export default app;
