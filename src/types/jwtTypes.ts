@@ -7,7 +7,7 @@ export type jwtPayload = {
   imageUrl: string | null;
 } | {};
 
-export type jwtSecret = string
+export type jwtSecret = string | undefined;
 
 export type jwtOptions = {
   expiresIn: string;
