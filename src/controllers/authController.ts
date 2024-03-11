@@ -16,20 +16,7 @@ export class AuthController {
     this._jwtOptions = jwtOptions;
   }
 
-  public login = async (req: Request, res: Response) => {
-    try {
-      const { email, password } = req.body;
-      const user = await this._service.getByEmail(email);
-      if (user && user.password === password) {
-        const { password: _, ...userWithoutPassword } = user;
-        const token = this._jwt.sign(userWithoutPassword, this._jwtSecret, this._jwtOptions);
-        res.status(200).json({ user: userWithoutPassword, token });
-      }
-      res.status(401).json({ error: "Email or password is incorrect" });
-    } catch (error) {
-        res.status(500).json({ error: (error as Error).message });
-      }
-    }; 
+  public login = async (req: Request, res: Response) => {}; 
 
-  public register = async (req: Request, res: Response) => {}
+  public verify = async (req: Request, res: Response) => {}
 }
