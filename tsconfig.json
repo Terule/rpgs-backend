@@ -27,7 +27,8 @@
       "@utils/*": ["utils/*"],
       "@cTypes/*": ["types/*"],
       "@routes/*": ["routes/*"],
-      "@jwt/*": ["jwt/*"]
+      "@jwt/*": ["jwt/*"],
+      "@errors/*": ["errors/*"]
     }
   },
   "include": ["next-env.d.ts", "twin.d.ts", "**/*.ts", "**/*.tsx"],
